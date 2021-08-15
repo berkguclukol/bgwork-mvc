@@ -4,22 +4,18 @@ class Configuration
 {
     public $homePageName;
     public $use_db;
-    public $db_hostname;
-    public $db_database;
-    public $db_username;
-    public $db_password;
+
     public function __construct()
     {
         $this->homePageName = "Welcome";
         $this->use_db = false;
-        $this->db_hostname = "";
-        $this->db_database = "";
-        $this->db_username = "";
-        $this->db_password = "";
     }
 
     public function homePage() {
         return $this->homePageName;
+    }
+    public function use_db(){
+        return $this->use_db;
     }
 
     public function unsetSession($name){
@@ -80,30 +76,5 @@ class Configuration
             }
         }
         return $datas;
-    }
-
-    // DATABASE CONFIG
-    public function use_db(){
-        return $this->use_db;
-    }
-
-    public function db_hostname()
-    {
-        return $this->db_hostname;
-    }
-
-    public function db_database()
-    {
-        return $this->db_database;
-    }
-
-    public function db_username()
-    {
-        return $this->db_username;
-    }
-
-    public function db_password()
-    {
-        return $this->db_password;
     }
 }

@@ -8,7 +8,7 @@ class Configuration
     public function __construct()
     {
         $this->homepage = "Welcome";
-        $this->use_db = true;
+        $this->use_db = false;
     }
 
     public function unset_session($name){

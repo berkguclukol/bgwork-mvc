@@ -2,32 +2,25 @@
 
 class Configuration
 {
-    public $homePageName;
+    public $homepage;
     public $use_db;
 
     public function __construct()
     {
-        $this->homePageName = "Welcome";
-        $this->use_db = false;
+        $this->homepage = "Welcome";
+        $this->use_db = true;
     }
 
-    public function homePage() {
-        return $this->homePageName;
-    }
-    public function use_db(){
-        return $this->use_db;
-    }
-
-    public function unsetSession($name){
+    public function unset_session($name){
         unset($_SESSION[$name]);
     }
 
-    public function getSession($name){
+    public function get_session($name){
         if (isset($_SESSION[$name]))
             return $_SESSION[$name];
     }
 
-    public function setSession($name, $value){
+    public function set_session($name, $value){
         $_SESSION[$name] = $value;
     }
 
@@ -50,11 +43,11 @@ class Configuration
         return $data;
     }
 
-    public function createLink($path = "") {
+    public function get_link($path = "") {
         return dirname($_SERVER['SCRIPT_NAME']) . "/" . $path;
     }
 
-    public function stylesheets($styles = null)
+    public function get_styles($styles = null)
     {
         $datas = "";
         if ($styles != null) {
@@ -66,7 +59,7 @@ class Configuration
         return $datas;
     }
 
-    public function scripts($scripts = null)
+    public function get_scripts($scripts = null)
     {
         $datas = "";
         if ($scripts != null) {

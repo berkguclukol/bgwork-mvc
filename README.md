@@ -20,33 +20,33 @@ Core/Configuration.php
 
 ```php
 <?php
-    class Configuration
+class Configuration
+{
+    public function __construct()
     {
-        public function __construct()
-        {
-            $this->homePageName = "Welcome";
-            $this->use_db = false;
-        }
+        $this->homePageName = "Welcome";
+        $this->use_db = false;
     }
+}
 ?>
 ```
 ## Database settings
-If the database is to be used, you need to change the `use_db` value and make the settings in the file below. The default value is set to `false`.
+If the database is to be used, you need to change the `use_db` value (in the Configuration file.) and make the settings in the file below. The default value is set to `false`.
 ```html
 Core/Database.php
 ```
 ```php
 <?php
-    class Database
+class Database
+{
+    public function __construct()
     {
-        public function __construct()
-        {
-            $this->hostname = "";
-            $this->database = "";
-            $this->username = "";
-            $this->password = "";
-        }
+        $this->hostname = "";
+        $this->database = "";
+        $this->username = "";
+        $this->password = "";
     }
+}
 ?>
 ```
 ## Homepage settings
@@ -65,40 +65,40 @@ Application/Views/Common/Header.php
 Application/Views/Common/Footer.php
 ```
 
-## _stylesheets & _scripts Function Usage
+## Common Functions Usage
 For style files, file paths are separated by commas and sent to the following function.
 ```php
 <?php
-    echo $configuration->stylesheets("bootstrap.min.css,style.min.css");
+echo $configuration->get_styles("bootstrap.min.css,style.min.css");
 ?>
 ```
 File paths for script files are separated by commas and sent to the following function. 
 ```php
 <?php
-    echo $configuration->scripts("jquery.min.js,custom.min.js,main.min.js");
+echo $configuration->get_scripts("jquery.min.js,custom.min.js,main.min.js");
 ?>
 ```
-## _setSession, _getSession and _unsetSession Function Usage
+## Session's Function Usage
 ```php
 <?php
-    echo $configuration->setSession($name, $value); // $_SESSION[$name] = $value;
-    echo $configuration->getSession($name);         // $_SESSION[$name];
-    echo $configuration->unsetSession($name);       // unset($_SESSION[$name]);
+echo $configuration->set_session($name, $value); // $_SESSION[$name] = $value;
+echo $configuration->get_session($name);         // $_SESSION[$name];
+echo $configuration->unset_session($name);       // unset($_SESSION[$name]);
 ?>
 ```
-## _get & _post Function Usage
+## Method's Function Usage
 ```php
 <?php
-    echo $configuration->get($name);    // $_GET[$name];
-    echo $configuration->post($name);   // $_POST[$name];
+echo $configuration->get($name);    // $_GET[$name];
+echo $configuration->post($name);   // $_POST[$name];
 ?>
 ```
 
-## _createLink Function Usage
+## Link Function Usage
 ```php
 <?php
-    echo $configuration->createLink(); // Return home page link
-    echo $configuration->createLink("Detail"); // Return specific page link
+echo $configuration->get_link(); // Return home page link
+echo $configuration->get_link("Detail"); // Return specific page link
 ?>
 ```
 ## Tech
